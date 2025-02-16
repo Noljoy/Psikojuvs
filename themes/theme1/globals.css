@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 245, 245, 240;
+  --primary-green: #0B4619;
+  --secondary-green: #1A472A;
+  --light-cream: #F5F5F0;
+  --warm-beige: #F5E6D3;
+  --deep-beige: #E6D5C3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--primary-green);
+  background: rgb(var(--background-rgb));
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Glassmorphism efekti için */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Animasyonlu butonlar */
+.animated-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Blog kartları için özel stiller */
+.blog-card {
+  @apply bg-white border border-green-800/20;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  @apply shadow-lg border-green-800/30;
+}
+
+.blog-card img {
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.1);
+}
+
+.blog-card .content {
+  @apply p-4;
+}
+
+/* Kategori paneli için özel stiller */
+.category-panel {
+  background-color: var(--warm-beige);
+  border: 1px solid rgba(11, 70, 25, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(11, 70, 25, 0.05);
+  transition: all 0.3s ease;
+}
+
+.category-panel:hover {
+  box-shadow: 0 6px 8px -1px rgba(11, 70, 25, 0.08);
+}
+
+/* Kategori link stilleri */
+.category-link {
+  @apply block py-2 rounded-lg transition-all duration-300;
+  color: var(--primary-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
+.category-link:hover::after {
+  width: 100%;
+}
+
+.category-link:hover {
+  background-color: rgba(11, 70, 25, 0.05);
+}
+
+/* Kategori etiketleri için stil */
+.category-tag {
+  background-color: var(--warm-beige);
+  color: var(--primary-green);
+  border: 1px solid rgba(11, 70, 25, 0.1);
+  transition: all 0.2s ease;
+}
+
+.blog-card:hover .category-tag {
+  background-color: var(--deep-beige);
+  border-color: rgba(11, 70, 25, 0.2);
+}
+
+/* Sayfa geçiş animasyonları */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Scroll bar stilleri */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--warm-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 70, 25, 0.2);
+  @apply rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(11, 70, 25, 0.3);
+}
+
+/* Navigasyon stilleri */
+.nav-header {
+  background-color: var(--warm-beige);
+  border-bottom: 1px solid rgba(11, 70, 25, 0.1);
+}
